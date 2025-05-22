@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product Page</title>
+  <link rel="stylesheet" href="../CSS/productStyles.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">■ E-Commerce</div>
+  <nav class="nav-links">
+    <a href="#">Menu</a>
+    <a href="#">PC Essentials</a>
+    <a href="#">Peripherals</a>
+  </nav>
+  <div class="header-icons">
+    <input type="search" placeholder="Search">
+    <div class="dropdown">
+      <button class="icon-button">👤</button>
+      <div class="dropdown-content">
+        <a href="#">Profile</a>
+        <a href="#">Orders</a>
+        <a href="#">Logout</a>
+      </div>
+    </div>
+    <a href="#" class="cart-link">🛒 Cart (0)</a>
+  </div>
+</header>
+
+<main class="product-page">
+    <div class="breadcrumb">
+        <a href="index.html">Home</a> > 
+        <a href="#" id="breadcrumb-category">Loading...</a> > 
+        <span id="breadcrumb-title">Loading...</span>
+    </div>
+
+
+
+  <div class="product-detail">
+    <div class="left-column">
+      <div class="main-image" id="main-image"></div>
+      <div class="thumbnail-container" id="thumbnails">
+        <!-- Thumbnails generated dynamically -->
+      </div>
+    </div>
+    <div class="right-column">
+      <h1 id="product-title">Product Title</h1>
+      <p class="brand" id="product-brand">Brand Logo/Title</p>
+      <p class="price" id="product-price">$0.00</p>
+      <div class="quantity">
+        <label>Quantity</label>
+        <div>
+          <button id="decrease">-</button>
+          <input type="text" id="quantity" value="1" readonly>
+          <button id="increase">+</button>
+        </div>
+      </div>
+      <button class="add-to-cart">Add To Cart</button>
+      <div class="description">
+        <h4>Description:</h4>
+        <p id="product-description">Product details here...</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="alternative-section">
+    <h3>Alternative Products</h3>
+    <div class="alt-products" id="alt-products">
+      <!-- Rendered via JS -->
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer-left">
+    <p>E-Commerce</p>
+    <a href="#">Contact Us</a>
+    <a href="#">FAQs</a>
+    <a href="#">About Us</a>
+    <div class="payment-icons">
+      <img src="visa.png" alt="Visa">
+      <img src="mastercard.png" alt="MasterCard">
+      <img src="amex.png" alt="AMEX">
+    </div>
+  </div>
+
+  <div class="footer-right">
+    <p>Stay In Touch! Join our Newsletter.</p>
+    <form class="newsletter">
+      <input type="email" placeholder="Enter Email">
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+</footer>
+
+<script>
+  const products = [
+    {
+      id: 0,
+      title: "AMD Radeon™ RX 7700 XT",
+      image: "../IMAGES/GPU/GPU/RX 7700XT/7700xt_1.webp",
+      attributes: "GPU",
+      price: 39.99,
+      discountPrice: 29.99,
+      category: "PC Essentials",
+      type: "GPU",
+      brand: "AMD",
+      description: "The AMD Radeon™ RX 7700 XT desktop graphics card is designed for next-generation gaming and streaming experiences at 1440p."
+    },
+    {
+      id: 1,
+      title: "Mechanical Keyboard",
+      image: "images/keyboard.jpg",
+      attributes: "Blue Switches, Backlit",
+      price: 89.99,
+      discountPrice: 89.99,
+      category: "Peripherals",
+      type: "Keyboard",
+      brand: "Corsair",
+      description: "Tactile mechanical keys with RGB backlighting."
+    },
+    {
+      id: 2,
+      title: "1080p Monitor",
+      image: "images/monitor.jpg",
+      attributes: "24 inch, IPS",
+      price: 129.99,
+      discountPrice: 99.99,
+      category: "Peripherals",
+      type: "Monitor",
+      brand: "Dell",
+      description: "Crisp Full HD display with vivid colors and fast refresh rate."
+    },
+    {
+      id: 3,
+      title: "AMD Ryzen 5 5600X",
+      image: "images/cpu.jpg",
+      attributes: "6-Core, 12-Thread",
+      price: 199.99,
+      discountPrice: 179.99,
+      category: "PC Essentials",
+      type: "CPU",
+      brand: "AMD",
+      description: "High-efficiency processor ideal for gaming and productivity."
+    },
+    {
+      id: 4,
+      title: "Intel Core i5-12400",
+      image: "images/cpu_intel.jpg",
+      attributes: "6-Core, 12-Thread",
+      price: 209.99,
+      discountPrice: 189.99,
+      category: "PC Essentials",
+      type: "CPU",
+      brand: "Intel",
+      description: "Powerful Intel CPU with balanced performance for all tasks."
+    }
+  ];
+
+  const params = new URLSearchParams(window.location.search);
+  const id = parseInt(params.get('id'));
+  const product = products.find(p => p.id === id);
+
+  if (product) {
+    // Breadcrumb update
+    document.getElementById('breadcrumb-title').textContent = product.title;
+    const catLink = document.getElementById('breadcrumb-category');
+    catLink.textContent = product.category;
+    catLink.href = `category.html?category=${encodeURIComponent(product.category)}`;
+
+    // Product info
+    document.getElementById('product-title').textContent = product.title;
+    document.getElementById('product-brand').textContent = product.brand;
+    document.getElementById('product-price').innerHTML = product.discountPrice < product.price
+      ? `<span style="text-decoration: line-through; color: gray;">₱${product.price.toFixed(2)}</span> <span style="color: red;">₱${product.discountPrice.toFixed(2)}</span>`
+      : `₱${product.price.toFixed(2)}`;
+    document.getElementById('main-image').style.backgroundImage = `url('${product.image}')`;
+    document.getElementById('product-description').textContent = product.description;
+
+    // Thumbnails
+    const thumbnails = document.getElementById('thumbnails');
+    thumbnails.innerHTML = ""; // Clear existing thumbnails
+    for (let i = 0; i < 3; i++) {
+      const thumb = document.createElement('div');
+      thumb.className = 'thumbnail';
+      thumb.style.backgroundImage = `url('${product.image}')`;
+      thumb.addEventListener('click', () => {
+        document.getElementById('main-image').style.backgroundImage = thumb.style.backgroundImage;
+      });
+      thumbnails.appendChild(thumb);
+    }
+
+    // Alternatives
+    const altContainer = document.getElementById('alt-products');
+    altContainer.innerHTML = ""; // Clear existing
+    products.filter(p => p.id !== id).slice(0, 5).forEach(alt => {
+      const altDiv = document.createElement('a');
+      altDiv.href = `product.html?id=${alt.id}`;
+      altDiv.className = 'alt-product';
+      altDiv.style.backgroundImage = `url('${alt.image}')`;
+      altContainer.appendChild(altDiv);
+    });
+
+    // Quantity buttons
+    document.getElementById('increase').addEventListener('click', () => {
+      let qty = parseInt(document.getElementById('quantity').value);
+      document.getElementById('quantity').value = qty + 1;
+    });
+
+    document.getElementById('decrease').addEventListener('click', () => {
+      let qty = parseInt(document.getElementById('quantity').value);
+      if (qty > 1) document.getElementById('quantity').value = qty - 1;
+    });
+
+  } else {
+    // Graceful fallback if product not found
+    document.querySelector('.product-detail').innerHTML = `
+      <p style="font-size: 20px; color: red;">Product not found.</p>
+    `;
+    document.getElementById('breadcrumb-title').textContent = "Not Found";
+    const catLink = document.getElementById('breadcrumb-category');
+    catLink.textContent = "Unknown";
+    catLink.removeAttribute('href');
+  }
+</script>
+
+</body>
+</html>

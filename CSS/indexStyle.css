@@ -1,0 +1,173 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  background: #ddd;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: bold;
+}
+
+.nav a {
+  margin-right: 15px;
+  color: #0077cc;
+  text-decoration: none;
+}
+
+.header-icons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.cart-link {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.main-content {
+  padding: 20px;
+}
+
+.hero {
+  background: #eee;
+  padding: 40px;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 14px;
+  margin-bottom: 20px;
+  max-width: 600px;
+}
+
+.cta-button {
+  padding: 10px 20px;
+  background: white;
+  border: 2px solid black;
+  cursor: pointer;
+}
+
+.feature {
+  background: #ddd;
+  text-align: center;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.product-card {
+  background: #f5f5f5;
+  text-align: center;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 8px;
+  transition: box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.product-image {
+  background: #ccc;
+  height: 150px;
+  margin-bottom: 10px;
+}
+
+.product-title {
+  color: #0077cc;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.product-attributes {
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.product-price {
+  font-weight: bold;
+}
+
+.footer {
+  background: #eee;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-left p {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.footer-left a {
+  margin-right: 10px;
+  color: #0077cc;
+  text-decoration: none;
+}
+
+.payment-icons img {
+  width: 30px;
+  margin-top: 10px;
+  margin-right: 5px;
+}
+
+.footer-right p {
+  margin-bottom: 5px;
+}
+
+.newsletter input {
+  padding: 5px;
+  margin-right: 5px;
+}
+
+.newsletter button {
+  padding: 5px 10px;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: gray;
+  margin-right: 5px;
+}
+
+.sale-price {
+  color: red;
+  font-weight: bold;
+}

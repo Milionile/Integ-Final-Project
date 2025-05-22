@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>E-Commerce</title>
+  <link rel="stylesheet" href="../CSS/categoryStyles.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">■ E-Commerce</div>
+  <nav class="nav-links">
+    <a href="#">Menu</a>
+    <a href="#">PC Essentials</a>
+    <a href="#">Peripherals</a>
+  </nav>
+  <div class="header-icons">
+    <input type="search" placeholder="Search">
+    <div class="dropdown">
+      <button class="icon-button">👤</button>
+      <div class="dropdown-content">
+        <a href="#">Profile</a>
+        <a href="#">Orders</a>
+        <a href="#">Logout</a>
+      </div>
+    </div>
+    <a href="#" class="cart-link">🛒 Cart (0)</a>
+  </div>
+</header>
+
+<main class="main-content">
+  <aside class="filters">
+    <h3>Filters<a href="#" class="clear-filters" id="clear-filters">Clear All</a></h3><br>
+    <div class="filter-tags" id="active-filters"></div>
+  
+    <select class="sort-select">
+        <option>Sort by Price...</option>
+    </select>
+
+    <div class="filter-section">
+      <h4>Categories</h4>
+      <label><input type="checkbox"> PC Essentials</label>
+      <label><input type="checkbox"> Peripherals</label>
+    </div>
+
+    <div class="filter-section">
+      <h4>Product Types</h4>
+      <label><input type="checkbox"> CPU</label>
+      <label><input type="checkbox"> Motherboard</label>
+      <label><input type="checkbox"> RAM</label>
+      <label><input type="checkbox"> GPU</label>
+      <label><input type="checkbox"> SSD</label>
+      <label><input type="checkbox"> HDD</label>
+      <label><input type="checkbox"> PSU</label>
+      <label><input type="checkbox"> Casing</label>
+      <label><input type="checkbox"> CPU Cooler</label>
+      <label><input type="checkbox"> Fan</label>
+    </div>
+
+    <div class="filter-section">
+      <h4>Brands</h4>
+      <label><input type="checkbox"> AMD</label>
+      <label><input type="checkbox"> Intel</label>
+    </div>
+  </aside>
+
+  <section class="products">
+    <div class="product-grid">
+      
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-left">
+    <p>E-Commerce</p>
+    <a href="#">Contact Us</a>
+    <a href="#">FAQs</a>
+    <a href="#">About Us</a>
+    <div class="payment-icons">
+      <img src="visa.png" alt="Visa">
+      <img src="mastercard.png" alt="MasterCard">
+      <img src="amex.png" alt="AMEX">
+    </div>
+  </div>
+
+  <div class="footer-right">
+    <p>Stay In Touch! Join our Newsletter.</p>
+    <form class="newsletter">
+      <input type="email" placeholder="Enter Email">
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+</footer>
+
+<script>
+  const products = [
+    {
+      id: 0,
+      title: "Gaming Mouse",
+      image: "images/mouse.jpg",
+      attributes: "RGB, 16000 DPI",
+      price: 39.99,
+      discountPrice: 29.99,
+      category: "Peripherals",
+      type: "Mouse",
+      brand: "Logitech"
+    },
+    {
+      id: 1,
+      title: "Mechanical Keyboard",
+      image: "images/keyboard.jpg",
+      attributes: "Blue Switches, Backlit",
+      price: 89.99,
+      discountPrice: 89.99,
+      category: "Peripherals",
+      type: "Keyboard",
+      brand: "Corsair"
+    },
+    {
+      id: 2,
+      title: "1080p Monitor",
+      image: "images/monitor.jpg",
+      attributes: "24 inch, IPS",
+      price: 129.99,
+      discountPrice: 99.99,
+      category: "Peripherals",
+      type: "Monitor",
+      brand: "Dell"
+    },
+    {
+      id: 3,
+      title: "AMD Ryzen 5 5600X",
+      image: "images/cpu.jpg",
+      attributes: "6-Core, 12-Thread",
+      price: 199.99,
+      discountPrice: 179.99,
+      category: "PC Essentials",
+      type: "CPU",
+      brand: "AMD"
+    },
+    {
+      id: 4,
+      title: "Intel Core i5-12400",
+      image: "images/cpu_intel.jpg",
+      attributes: "6-Core, 12-Thread",
+      price: 209.99,
+      discountPrice: 189.99,
+      category: "PC Essentials",
+      type: "CPU",
+      brand: "Intel"
+    }
+  ];
+
+  const grid = document.querySelector('.product-grid');
+  const checkboxes = document.querySelectorAll('.filters input[type="checkbox"]');
+  const filterTagContainer = document.getElementById('active-filters');
+
+  function getSelectedFilters() {
+    const selected = {
+      category: [],
+      type: [],
+      brand: []
+    };
+
+    checkboxes.forEach(checkbox => {
+      if (checkbox.checked) {
+        const label = checkbox.parentElement.textContent.trim();
+        if (["PC Essentials", "Peripherals"].includes(label)) {
+          selected.category.push(label);
+        } else if (["CPU", "Motherboard", "RAM", "GPU", "SSD", "HDD", "PSU", "Casing", "CPU Cooler", "Fan", "Mouse", "Keyboard", "Monitor"].includes(label)) {
+          selected.type.push(label);
+        } else {
+          selected.brand.push(label);
+        }
+      }
+    });
+
+    return selected;
+  }
+
+  function renderActiveFilters() {
+    filterTagContainer.innerHTML = '';
+    checkboxes.forEach(checkbox => {
+      if (checkbox.checked) {
+        const label = checkbox.parentElement.textContent.trim();
+        const tag = document.createElement('button');
+        tag.className = 'filter-tag';
+        tag.textContent = `${label} ✕`;
+        tag.addEventListener('click', () => {
+          checkbox.checked = false;
+          renderProducts();
+        });
+        filterTagContainer.appendChild(tag);
+      }
+    });
+  }
+
+  function renderProducts() {
+    const filters = getSelectedFilters();
+    renderActiveFilters();
+
+    grid.innerHTML = '';
+
+    const filtered = products.filter(product => {
+      const matchesCategory = filters.category.length === 0 || filters.category.includes(product.category);
+      const matchesType = filters.type.length === 0 || filters.type.includes(product.type);
+      const matchesBrand = filters.brand.length === 0 || filters.brand.includes(product.brand);
+      return matchesCategory && matchesType && matchesBrand;
+    });
+
+    if (filtered.length === 0) {
+      grid.innerHTML = '<p>No products match the selected filters.</p>';
+      return;
+    }
+
+    filtered.forEach(product => {
+      const card = document.createElement('a');
+      card.className = 'product-card';
+      card.href = `product.html?id=${product.id}`;
+
+      const hasDiscount = product.discountPrice && product.discountPrice < product.price;
+
+      card.innerHTML = `
+        <div class="product-image" style="background-image: url('${product.image}'); background-size: cover;"></div>
+        <div class="product-title">${product.title}</div>
+        <div class="product-attributes">${product.attributes}</div>
+        <div class="product-price">
+          ${hasDiscount
+            ? `<span class="old-price">₱${product.price.toFixed(2)}</span> 
+               <span class="discounted-price">₱${product.discountPrice.toFixed(2)}</span>`
+            : `₱${product.price.toFixed(2)}`
+          }
+        </div>
+      `;
+
+      grid.appendChild(card);
+    });
+  }
+
+  checkboxes.forEach(cb => cb.addEventListener('change', renderProducts));
+  renderProducts();
+
+document.getElementById('clear-filters').addEventListener('click', (e) => {
+  e.preventDefault();
+  checkboxes.forEach(cb => cb.checked = false);
+  renderProducts();
+});
+
+renderProducts();
+</script>
+
+</body>
+</html>

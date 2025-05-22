@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>E-Commerce Homepage</title>
+  <link rel="stylesheet" href="CSS/indexStyle.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">■ E-Commerce</div>
+  <nav class="nav">
+    <a href="#">Menu</a>
+    <a href="#">PC Essentials</a>
+    <a href="#">Peripherals</a>
+  </nav>
+  <div class="header-icons">
+    <input type="search" placeholder="Search">
+    <button class="icon-button">👤</button>
+    <a href="#" class="cart-link">🛒 Cart (0)</a>
+  </div>
+</header>
+
+<main class="main-content">
+  <section class="hero">
+    <h1>Hero Title</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <a href="HTMLS/category.html"><button class="cta-button">⬇️ Call To Action</button></a>
+  </section>
+
+  <section class="feature">
+    <h2>Feature Message</h2>
+  </section>
+
+  <section class="product-grid">
+    <!-- Products will appear here -->
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-left">
+    <p>E-Commerce</p>
+    <a href="#">Contact Us</a>
+    <a href="#">FAQs</a>
+    <a href="#">About Us</a>
+    <div class="payment-icons">
+      <img src="visa.png" alt="Visa">
+      <img src="mastercard.png" alt="MasterCard">
+      <img src="amex.png" alt="AMEX">
+    </div>
+  </div>
+
+  <div class="footer-right">
+    <p>Stay In Touch! Join our Newsletter.</p>
+    <form class="newsletter">
+      <input type="email" placeholder="Enter Email">
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+</footer>
+
+<script>
+  const products = [
+    {
+      "id": 0,
+      "title": "AMD Radeon RX 7700 XT",
+      "image": "IMAGES/GPU/GPU/RX 7700XT/7700xt_1.webp",
+      "attributes": "GPU",
+      "price": 39.99,
+      "discountPrice": 29.99
+    },
+    {
+      "id": 1,
+      "title": "Mechanical Keyboard",
+      "image": "images/keyboard.jpg",
+      "attributes": "Blue Switches, Backlit",
+      "price": 89.99,
+      "discountPrice": 89.99
+    },
+    {
+      "id": 2,
+      "title": "1080p Monitor",
+      "image": "images/monitor.jpg",
+      "attributes": "24 inch, IPS",
+      "price": 129.99,
+      "discountPrice": 99.99
+    },
+    {
+      "id": 2,
+      "title": "1080p Monitor",
+      "image": "images/monitor.jpg",
+      "attributes": "24 inch, IPS",
+      "price": 129.99,
+      "discountPrice": 99.99
+    },
+    {
+      "id": 2,
+      "title": "1080p Monitor",
+      "image": "images/monitor.jpg",
+      "attributes": "24 inch, IPS",
+      "price": 129.99,
+      "discountPrice": 99.99
+    },
+    {
+      "id": 2,
+      "title": "1080p Monitor",
+      "image": "images/monitor.jpg",
+      "attributes": "24 inch, IPS",
+      "price": 129.99,
+      "discountPrice": 99.99
+    },
+    {
+      "id": 2,
+      "title": "1080p Monitor",
+      "image": "images/monitor.jpg",
+      "attributes": "24 inch, IPS",
+      "price": 129.99,
+      "discountPrice": 99.99
+    }
+  ];
+
+  const grid = document.querySelector('.product-grid');
+  grid.innerHTML = '';
+
+  products.forEach(product => {
+    const card = document.createElement('a');
+    card.className = 'product-card';
+    card.href = `HTMLS/product.html?id=${product.id}`;
+
+    const hasDiscount = product.discountPrice && product.discountPrice < product.price;
+
+    card.innerHTML = `
+      <div class="product-image" style="background-image: url('${product.image}'); background-size: cover;"></div>
+      <div class="product-title">${product.title}</div>
+      <div class="product-attributes">${product.attributes}</div>
+      <div class="product-price">
+        ${hasDiscount
+          ? `<span class="old-price">₱${product.price.toFixed(2)}</span> 
+             <span class="discounted-price">₱${product.discountPrice.toFixed(2)}</span>`
+          : `₱${product.price.toFixed(2)}`
+        }
+      </div>
+    `;
+
+    grid.appendChild(card);
+  });
+
+  function selectProduct(id) {
+    localStorage.setItem("selectedProductId", id);
+    window.location.href = "HTMLS/product.html";
+  }
+</script>
+
+
+</body>
+</html>
