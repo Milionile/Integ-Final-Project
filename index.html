@@ -5,22 +5,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>E-Commerce Homepage</title>
   <link rel="stylesheet" href="CSS/indexStyle.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
 <header class="header">
-  <div class="logo">■ E-Commerce</div>
-  <nav class="nav">
-    <a href="#">Menu</a>
-    <a href="#">PC Essentials</a>
-    <a href="#">Peripherals</a>
-  </nav>
-  <div class="header-icons">
-    <input type="search" placeholder="Search">
-    <button class="icon-button">👤</button>
-    <a href="#" class="cart-link">🛒 Cart (0)</a>
-  </div>
-</header>
+      <div class="logo"><i class="fas fa-store"></i> E-Commerce</div>
+      <nav class="nav">
+        <a href="#" class="active"><i class="fas fa-home"></i> Home</a>
+        <a href="#"><i class="fas fa-laptop"></i> PC Essentials</a>
+        <a href="#"><i class="fas fa-keyboard"></i> Peripherals</a>
+      </nav>
+      <div class="header-icons">
+        <div class="search-box">
+          <i class="fas fa-search"></i>
+          <input type="search" placeholder="Search products..." id="search-input" />
+        </div>
+        <div class="dropdown">
+          <button class="icon-button">
+            <i class="fas fa-user-circle"></i>
+          </button>
+          <div class="dropdown-content">
+            <div class="dropdown-header">
+              <i class="fas fa-user-circle profile-icon"></i>
+              <div class="user-info">
+                <span class="user-name">Guest User</span>
+                <span class="user-email">Login or Register</span>
+              </div>
+            </div>
+            <div class="dropdown-divider"></div>
+            <a href="#"><i class="fas fa-user"></i> Profile</a>
+            <a href="#"><i class="fas fa-box"></i> Orders</a>
+            <a href="#"><i class="fas fa-heart"></i> Wishlist</a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="logout-link"
+              ><i class="fas fa-sign-out-alt"></i> Logout</a
+            >
+          </div>
+        </div>
+        <a href="#" class="cart-link">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-count" id="cart-count">0</span>
+        </a>
+      </div>
+    </header>
 
 <main class="main-content">
   <section class="hero">
