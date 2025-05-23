@@ -14,7 +14,7 @@ const products = [
     {
       id: 1,
       title: "Mechanical Keyboard",
-      image: "images/keyboard.jpg",
+      image: "../IMAGES/keyboard.jpg",
       attributes: "Blue Switches, Backlit",
       price: 89.99,
       discountPrice: 89.99,
@@ -26,7 +26,7 @@ const products = [
     {
       id: 2,
       title: "1080p Monitor",
-      image: "images/monitor.jpg",
+      image: "../IMAGES/monitor.jpg",
       attributes: "24 inch, IPS",
       price: 129.99,
       discountPrice: 99.99,
@@ -38,7 +38,7 @@ const products = [
     {
       id: 3,
       title: "AMD Ryzen 5 5600X",
-      image: "images/cpu.jpg",
+      image: "../IMAGES/cpu.jpg",
       attributes: "6-Core, 12-Thread",
       price: 199.99,
       discountPrice: 179.99,
@@ -50,7 +50,7 @@ const products = [
     {
       id: 4,
       title: "Intel Core i5-12400",
-      image: "images/cpu_intel.jpg",
+      image: "../IMAGES/cpu_intel.jpg",
       attributes: "6-Core, 12-Thread",
       price: 209.99,
       discountPrice: 189.99,
