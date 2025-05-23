@@ -2,7 +2,7 @@ const products = [
     {
       id: 0,
       title: "AMD Radeon™ RX 7700 XT",
-      image: "IMAGES/GPU/RX 7700XT/7700xt_1.webp",
+      image: "../IMAGES/GPU/RX 7700XT/7700xt_1.webp",
       attributes: "GPU",
       price: 39.99,
       discountPrice: 29.99,
