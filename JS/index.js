@@ -1,8 +1,8 @@
-  const products = [
+const products = [
     {
       "id": 0,
       "title": "AMD Radeon RX 7700 XT",
-      "image": "IMAGES/GPU/RX 7700XT/7700xt_1.webp",
+      "image": "../IMAGES/GPU/RX 7700XT/7700xt_1.webp",
       "attributes": "GPU",
       "price": 39.99,
       "discountPrice": 29.99
@@ -10,7 +10,7 @@
     {
       "id": 1,
       "title": "Mechanical Keyboard",
-      "image": "images/keyboard.jpg",
+      "image": "../IMAGES/keyboard.jpg",
       "attributes": "Blue Switches, Backlit",
       "price": 89.99,
       "discountPrice": 89.99
@@ -18,7 +18,7 @@
     {
       "id": 2,
       "title": "1080p Monitor",
-      "image": "images/monitor.jpg",
+      "image": "../IMAGES/monitor.jpg",
       "attributes": "24 inch, IPS",
       "price": 129.99,
       "discountPrice": 99.99
@@ -26,7 +26,7 @@
     {
       "id": 2,
       "title": "1080p Monitor",
-      "image": "images/monitor.jpg",
+      "image": "../IMAGES/monitor.jpg",
       "attributes": "24 inch, IPS",
       "price": 129.99,
       "discountPrice": 99.99
@@ -34,7 +34,7 @@
     {
       "id": 2,
       "title": "1080p Monitor",
-      "image": "images/monitor.jpg",
+      "image": "../IMAGES/monitor.jpg",
       "attributes": "24 inch, IPS",
       "price": 129.99,
       "discountPrice": 99.99
@@ -42,7 +42,7 @@
     {
       "id": 2,
       "title": "1080p Monitor",
-      "image": "images/monitor.jpg",
+      "image": "../IMAGES/monitor.jpg",
       "attributes": "24 inch, IPS",
       "price": 129.99,
       "discountPrice": 99.99
@@ -50,7 +50,7 @@
     {
       "id": 2,
       "title": "1080p Monitor",
-      "image": "images/monitor.jpg",
+      "image": "../IMAGES/monitor.jpg",
       "attributes": "24 inch, IPS",
       "price": 129.99,
       "discountPrice": 99.99
