@@ -9,8 +9,8 @@ const products = [
     },
     {
       "id": 1,
-      "title": "Mechanical Keyboard",
-      "image": "../IMAGES/keyboard.jpg",
+      "title": "Ducky One 3 SF DayBreak RGB Hotswappable Mechanical Keyboard",
+      "image": "../IMAGES/Peripherals/Ducky One 3 SF DayBreak RGB Hotswappable Mechanical Keyboard/ducky-one-3-sf-daybreak-red.jpg",
       "attributes": "Blue Switches, Backlit",
       "price": 89.99,
       "discountPrice": 89.99
