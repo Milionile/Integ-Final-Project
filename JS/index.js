@@ -2,7 +2,7 @@ const products = [
     {
       "id": 0,
       "title": "AMD Radeon RX 7700 XT",
-      "image": "../IMAGES/GPU/RX 7700XT/7700xt_1.webp",
+      "image": "IMAGES/GPU/RX 7700XT/7700xt_1.webp",
       "attributes": "GPU",
       "price": 39.99,
       "discountPrice": 29.99
@@ -10,7 +10,7 @@ const products = [
     {
       "id": 1,
       "title": "Ducky One 3 SF DayBreak RGB Hotswappable Mechanical Keyboard",
-      "image": "../IMAGES/Peripherals/Ducky One 3 SF DayBreak RGB Hotswappable Mechanical Keyboard/ducky-one-3-sf-daybreak-red.jpg",
+      "image": "IMAGES/Peripherals/Ducky One 3 SF DayBreak RGB Hotswappable Mechanical Keyboard/ducky-one-3-sf-daybreak-red.jpg",
       "attributes": "Blue Switches, Backlit",
       "price": 89.99,
       "discountPrice": 89.99
@@ -18,7 +18,7 @@ const products = [
     {
       "id": 2,
       "title": "1080p Monitor",
-      "image": "../IMAGES/monitor.jpg",
+      "image": "IMAGES/monitor.jpg",
       "attributes": "24 inch, IPS",
       "price": 129.99,
       "discountPrice": 99.99
@@ -26,7 +26,7 @@ const products = [
     {
       "id": 2,
       "title": "1080p Monitor",
-      "image": "../IMAGES/monitor.jpg",
+      "image": "IMAGES/monitor.jpg",
       "attributes": "24 inch, IPS",
       "price": 129.99,
       "discountPrice": 99.99
@@ -34,7 +34,7 @@ const products = [
     {
       "id": 2,
       "title": "1080p Monitor",
-      "image": "../IMAGES/monitor.jpg",
+      "image": "IMAGES/monitor.jpg",
       "attributes": "24 inch, IPS",
       "price": 129.99,
       "discountPrice": 99.99
@@ -42,7 +42,7 @@ const products = [
     {
       "id": 2,
       "title": "1080p Monitor",
-      "image": "../IMAGES/monitor.jpg",
+      "image": "IMAGES/monitor.jpg",
       "attributes": "24 inch, IPS",
       "price": 129.99,
       "discountPrice": 99.99
@@ -50,7 +50,7 @@ const products = [
     {
       "id": 2,
       "title": "1080p Monitor",
-      "image": "../IMAGES/monitor.jpg",
+      "image": "IMAGES/monitor.jpg",
       "attributes": "24 inch, IPS",
       "price": 129.99,
       "discountPrice": 99.99
